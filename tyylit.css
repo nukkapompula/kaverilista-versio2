@@ -10,7 +10,8 @@ main {
     color: rgb(132, 227, 138);
 }
 
-ol {
+ul {
+    list-style: none;
     text-align: center;
 }
 

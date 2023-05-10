@@ -13,18 +13,17 @@
             <h1>~ Kaverilista ~</h1>
             <p>
                 Syötä kenttään kaverisi nimi ja lisää hänet napsauttamalla <strong>"Lisää"</strong>. Voit 
-                poistaa kaverin kirjoittamalla hänen nimensä ja klikkaamalla <strong>"Poista"</strong>. 
-                <strong>"Järjestä"</strong>-painike järjestää ystäväsi aakkosjärjestykseen.
+                poistaa kaverin klikkaamalla hänen nimeään. <strong>"Järjestä"</strong>-painike 
+                järjestää ystäväsi aakkosjärjestykseen.
             </p>
         </div>
         <div>
             <form name="kysely">
-                <input id="nimi" type="text" placeholder="Kirjoita tänne">
+                <input id="nimi" type="text" placehulder="Kirjoita tänne">
                 <input id="lisää" type="submit" value="Lisää">
-                <input id="poista" type="submit" value="Poista">
-                <input id="järjestä" type="submit" value="Järjestä">
+                <input id="järjestä" type="button" value="Järjestä">
             </form>
-            <ol id="nimiLista"></ol>
+            <ul id="nimiLista"></ul>
         </div>
         <script src="toiminnot.js"></script>
     </main>

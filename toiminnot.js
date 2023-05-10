@@ -2,6 +2,7 @@ let lomake = document.forms["kysely"];
 let lista = document.getElementById("nimiLista");
 
 lomake.addEventListener("submit", uusiKaveri);
+lista.addEventListener("click", kaverinPoisto);
 
 const kaverit = [];
 let indeksi = 0;
@@ -40,4 +41,9 @@ function uusiKaveri(event){
     } else {
         console.log("puuttuu immeisiä");
     }
+}
+
+function kaverinPoisto(event){
+    let vanhempi = event.target.parentElement;
+    vanhempi.removeChild(event.target);
 }
