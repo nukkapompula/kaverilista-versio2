@@ -1,0 +1,28 @@
+body {
+    box-sizing: border-box;
+    background-color: rgb(42, 12, 62);
+}
+
+main {
+    font-family: 'Ink Free', Arial;
+    font-size: 177%;
+    text-align: center;
+    color: rgb(132, 227, 138);
+}
+
+ol {
+    text-align: center;
+}
+
+li {
+    text-align: left;
+    margin-left: 45%;
+}
+
+form input {
+    border: none;
+    background-color: white;
+    color: black;
+    font-family: 'Ink Free', Arial;
+    font-size: 111%;
+}
