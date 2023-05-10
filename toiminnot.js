@@ -1,8 +1,9 @@
-let lomake = document.forms["kysely"];
+let lisaa = document.getElementById("lisää")
+let jarjesta = document.getElementById("järjestä")
 let lista = document.getElementById("nimiLista");
 
-lomake.addEventListener("submit", uusiKaveri);
-lista.addEventListener("click", kaverinPoisto);
+lisaa.addEventListener("click", uusiKaveri);
+jarjesta.addEventListener("click", jarjestaNimet);
 
 const kaverit = [];
 let indeksi = 0;
@@ -11,7 +12,6 @@ function uusiKaveri(event){
     event.preventDefault()
     let nimi = document.querySelector('input[type="text"]').value;
     if(nimi.length < 1){
-        window.alert("Täytä tekstikenttä kaverisi nimellä.");
         return;
     }
 
@@ -43,7 +43,8 @@ function uusiKaveri(event){
     }
 }
 
-function kaverinPoisto(event){
-    let vanhempi = event.target.parentElement;
-    vanhempi.removeChild(event.target);
+function jarjestaNimet(event){
+    event.preventDefault()
+    kaverit.sort();
+    console.log("nnoin")
 }
