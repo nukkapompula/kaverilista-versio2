@@ -1,9 +1,11 @@
-let lisaa = document.getElementById("lisää")
-let jarjesta = document.getElementById("järjestä")
+let lisaa = document.getElementById("lisää");
+let jarjesta = document.getElementById("järjestä");
+let poista = document.getElementById("poista");
 let lista = document.getElementById("nimiLista");
 
 lisaa.addEventListener("click", uusiKaveri);
-jarjesta.addEventListener("click", jarjestaNimet);
+jarjesta.addEventListener("click", jarjestaKaverit);
+poista.addEventListener("click", poistaKaveri);
 
 const kaverit = [];
 
@@ -21,13 +23,18 @@ function uusiKaveri(event){
     ladoLista();
 }
 
-function jarjestaNimet(event){
+function jarjestaKaverit(event){
     event.preventDefault()
     pyyhiLista();
     kaverit.sort();
     ladoLista();
     console.log("kaverilista lajiteltu")
     }
+
+function poistaKaveri(event){
+    event.preventDefault()
+    console.log("kaveri poistettu")
+}
 
 function pyyhiLista(){
     for(let apuri=0; apuri<kaverit.length; apuri++){
