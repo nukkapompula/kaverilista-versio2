@@ -6,7 +6,7 @@ lisaa.addEventListener("click", uusiKaveri);
 jarjesta.addEventListener("click", jarjestaNimet);
 
 const kaverit = [];
-let indeksi = 0;
+let tyhjä = true;
 
 function uusiKaveri(event){
     event.preventDefault()
@@ -15,31 +15,23 @@ function uusiKaveri(event){
         return;
     }
 
-    if (indeksi > 9) {
-        for(let apuri=0; apuri<10; apuri++){
-            let poistettava = document.getElementById("listaEsine");
-            lista.removeChild(poistettava);
-        }
-        indeksi = 0;
-        kaverit.length = 0;
-    }
-
     kaverit.push(nimi);
     document.querySelector('input[type="text"]').value = "";
-    indeksi += 1;
     console.log(`kaveri nro ${kaverit.length} lisätty, nimi: ${nimi}`)
 
-    if (indeksi > 9) {
-        console.log("NYT ON 10 TÄYNNÄ!!");
-        for(let valitsin=0; valitsin<kaverit.length; valitsin++){
-            let uusiElementti = document.createElement("li");
-            let uusiElementtiNimi = document.createTextNode(kaverit[valitsin]);
-            uusiElementti.id = "listaEsine";
-            uusiElementti.appendChild(uusiElementtiNimi);
-            document.querySelector("#nimiLista").appendChild(uusiElementti);
-        }
-    } else {
-        console.log("puuttuu immeisiä");
+    // edellisen listan pyyhkiminen pois
+    //for(let apuri=0; apuri<kaverit.length; apuri++){
+    //    let poistettava = document.getElementById("listaEsine");
+    //    lista.removeChild(poistettava);
+    //}
+
+    // päivitetyn listan latominen ruudulle
+    for(let indeksi=0; indeksi<kaverit.length; indeksi++){
+        let uusiElementti = document.createElement("li");
+        let uusiElementtiNimi = document.createTextNode(kaverit[indeksi]);
+        uusiElementti.id = "listaEsine";
+        uusiElementti.appendChild(uusiElementtiNimi);
+        document.querySelector("#nimiLista").appendChild(uusiElementti);
     }
 }
 
@@ -47,4 +39,4 @@ function jarjestaNimet(event){
     event.preventDefault()
     kaverit.sort();
     console.log("nnoin")
-}
+    }
