@@ -14,29 +14,34 @@ function uusiKaveri(event){
         return;
     }
 
-    // edellisen listan pyyhkiminen pois
+    pyyhiLista();
+    kaverit.push(nimi);
+    document.querySelector('input[type="text"]').value = "";
+    console.log(`kaveri nimeltä ${nimi} lisätty`)
+    ladoLista();
+}
+
+function jarjestaNimet(event){
+    event.preventDefault()
+    pyyhiLista();
+    kaverit.sort();
+    ladoLista();
+    console.log("kaverilista lajiteltu")
+    }
+
+function pyyhiLista(){
     for(let apuri=0; apuri<kaverit.length; apuri++){
         let poistettava = document.getElementById("listaEsine");
         lista.removeChild(poistettava);
     }
-    
-    kaverit.push(nimi);
-    document.querySelector('input[type="text"]').value = "";
-    console.log(`kaveri nimeltä ${nimi} lisätty`)
+}
 
-    // päivitetyn listan latominen ruudulle
+function ladoLista(){
     for(let indeksi=0; indeksi<kaverit.length; indeksi++){
         let uusiElementti = document.createElement("li");
         let uusiElementtiNimi = document.createTextNode(kaverit[indeksi]);
         uusiElementti.id = "listaEsine";
         uusiElementti.appendChild(uusiElementtiNimi);
         document.querySelector("#nimiLista").appendChild(uusiElementti);
-        tyhjä = false;
     }
 }
-
-function jarjestaNimet(event){
-    event.preventDefault()
-    kaverit.sort();
-    console.log("nnoin")
-    }
