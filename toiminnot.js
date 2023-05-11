@@ -6,7 +6,6 @@ lisaa.addEventListener("click", uusiKaveri);
 jarjesta.addEventListener("click", jarjestaNimet);
 
 const kaverit = [];
-let tyhjä = true;
 
 function uusiKaveri(event){
     event.preventDefault()
@@ -15,15 +14,15 @@ function uusiKaveri(event){
         return;
     }
 
+    // edellisen listan pyyhkiminen pois
+    for(let apuri=0; apuri<kaverit.length; apuri++){
+        let poistettava = document.getElementById("listaEsine");
+        lista.removeChild(poistettava);
+    }
+    
     kaverit.push(nimi);
     document.querySelector('input[type="text"]').value = "";
-    console.log(`kaveri nro ${kaverit.length} lisätty, nimi: ${nimi}`)
-
-    // edellisen listan pyyhkiminen pois
-    //for(let apuri=0; apuri<kaverit.length; apuri++){
-    //    let poistettava = document.getElementById("listaEsine");
-    //    lista.removeChild(poistettava);
-    //}
+    console.log(`kaveri nimeltä ${nimi} lisätty`)
 
     // päivitetyn listan latominen ruudulle
     for(let indeksi=0; indeksi<kaverit.length; indeksi++){
@@ -32,6 +31,7 @@ function uusiKaveri(event){
         uusiElementti.id = "listaEsine";
         uusiElementti.appendChild(uusiElementtiNimi);
         document.querySelector("#nimiLista").appendChild(uusiElementti);
+        tyhjä = false;
     }
 }
 
