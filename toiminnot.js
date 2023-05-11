@@ -10,7 +10,7 @@ poista.addEventListener("click", poistaKaveri);
 const kaverit = [];
 
 function uusiKaveri(event){
-    event.preventDefault()
+    event.preventDefault();
     let nimi = document.querySelector('input[type="text"]').value;
     if(nimi.length < 1){
         return;
@@ -24,16 +24,25 @@ function uusiKaveri(event){
 }
 
 function jarjestaKaverit(event){
-    event.preventDefault()
+    event.preventDefault();
     pyyhiLista();
     kaverit.sort();
     ladoLista();
     console.log("kaverilista lajiteltu")
-    }
+}
 
 function poistaKaveri(event){
-    event.preventDefault()
-    console.log("kaveri poistettu")
+    event.preventDefault();
+    pyyhiLista();
+    let ulos = document.querySelector('input[type="text"]').value;
+    for(let apuri=0; apuri<kaverit.length; apuri++){
+        if (kaverit[apuri] == ulos){
+            kaverit.splice(apuri, 1);
+        }
+    }
+    document.querySelector('input[type="text"]').value = "";
+    ladoLista();
+    console.log("kaveri poistettu");
 }
 
 function pyyhiLista(){
