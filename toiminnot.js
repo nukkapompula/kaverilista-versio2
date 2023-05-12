@@ -37,12 +37,12 @@ function poistaKaveri(event){
     let ulos = document.querySelector('input[type="text"]').value;
     for(let apuri=0; apuri<kaverit.length; apuri++){
         if (kaverit[apuri] == ulos){
+            console.log(`kaveri nimeltä ${kaverit[apuri]} poistettu`);
             kaverit.splice(apuri, 1);
         }
     }
     document.querySelector('input[type="text"]').value = "";
     ladoLista();
-    console.log("kaveri poistettu");
 }
 
 function pyyhiLista(){
